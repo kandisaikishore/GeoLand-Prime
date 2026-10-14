@@ -1,16 +1,18 @@
 # GeoLand Prime
 
-**Real-estate discovery and land-evidence workflow prototype for Telangana.**
+**Real-estate discovery and land-evidence workflow prototype focused on Telangana.**
 
-> **Reference mode:** Property cards, prices, parcel shapes, survey references, verification statuses, coordinates, audit events, and proximity measurements shown here are illustrative sample data. GeoLand Prime does not connect to Google Maps or to an official Telangana government verification API. It does not confirm title, ownership, encumbrances, legal status, or cadastral boundaries.
+> **Reference mode:** Sample property records, values, parcel drawings and verification statuses are illustrative only. Google Maps is intentionally omitted. No official Telangana government verification API is connected, and this app does not prove title, ownership, encumbrance status, legal status or cadastral boundaries.
 
-## Demo frontend
+## GitHub Pages deployment
 
-Static frontend uses HTML, CSS and JavaScript and needs no build step or API key. GitHub Actions deploys the root frontend to GitHub Pages when changes are pushed to `main`.
+The static frontend is deployed using GitHub Actions on pushes to `main`.
 
-Expected URL: https://kandisaikishore.github.io/GeoLand-Prime/
+Expected URL: <https://kandisaikishore.github.io/GeoLand-Prime/>
 
-If this is the first deployment, open **Settings → Pages** in the repository and choose **GitHub Actions** as the build/deployment source. The published URL becomes available after the workflow completes.
+Workflow runs: <https://github.com/kandisaikishore/GeoLand-Prime/actions>
+
+If Pages has not been enabled for the repository yet, open **Settings → Pages** and choose **GitHub Actions** as the build/deployment source. The website is live only after the workflow succeeds and Pages is enabled.
 
 ## Run locally
 
@@ -18,28 +20,23 @@ If this is the first deployment, open **Settings → Pages** in the repository a
 python -m http.server 8080
 ```
 
-Open http://localhost:8080 and use **GIS & sources** to view reference GIS and source due-diligence workflows.
+Open <http://localhost:8080>. Select **GIS & sources** to see the schematic reference map, example GeoJSON checks and a manual due-diligence checklist.
 
-## Features
+## Prototype features
 
-- Property discovery, filtering, sample property detail and evidence-status views.
-- Buyer, owner, broker, developer and auditor demo workspaces.
-- Sample trust centre and exportable demo verification report.
-- GIS/source reference view and basic GeoJSON validation utilities.
-- Explicit reference-only notices instead of claiming live map or official verification integrations.
+- Property search and sample property details.
+- Buyer, owner, broker, developer and auditor demo role switcher.
+- Trust-centre due diligence checklist and downloadable sample JSON.
+- Illustrative GIS / parcel boundary view and basic GeoJSON structure checks.
+- Sample fee calculator with explicit rate caveats.
+- Clear notices that sample content and statuses are not official results.
 
-## Layout
+## Important limitations
 
-- `index.html`, `styles.css`, `app.js`, `integrations.js`: static GitHub Pages frontend.
-- `backend/`: optional FastAPI/PostGIS integration scaffolding for future authorized service connections.
-- `.github/workflows/pages.yml`: CI deployment workflow for GitHub Pages.
+- All listings and parcel boundaries are fictitious examples; no actual land inventory is represented.
+- The GIS picture is schematic, not to scale and not a cadastral map.
+- GeoJSON checks are structural checks only; they do not establish survey accuracy or legal ownership.
+- Telangana Bhu Bharati and any registration, EC, prohibited-land, identity or survey services are not connected. Open the portal yourself for manual reference: <https://bhubharati.telangana.gov.in/homePage>.
+- User actions are browser-local and are not production records. Authentication, server database, notifications, payment services and legal verification are not configured.
 
-## Optional backend scaffold
-
-GitHub Pages hosts only the static frontend. It does not run FastAPI or PostgreSQL. The optional scaffold under `backend/` can be developed and deployed separately on a Python-capable host; see `backend/` for API code, SQL schema, requirements, and environment examples. Official-source adapters should only be enabled with documented, authorized API access and a validated data contract.
-
-## Official reference
-
-- Telangana Bhu Bharati portal: https://bhubharati.telangana.gov.in/homePage
-
-This link is provided for manual reference only. Verify documents directly with authorized official sources and qualified professionals before making property decisions.
+This repository currently contains the static reference-mode frontend. Backend integration scaffolding is intentionally not published here until it can be committed as complete, tested source files.
